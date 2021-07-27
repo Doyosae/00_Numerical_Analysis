@@ -1,7 +1,7 @@
 # Itroduction
 I'm interested in numerical simulation  
 So I often implemented them.  
-For example, linear regression, Monte Carlo method, numerical analytic differential equation pool,  
+For example, linear regression, Monte Carlo method, numerical analytic differential equation,  
 and Statistical Mechanics etc...  
 # Environment  
 Python 3.7.6  
