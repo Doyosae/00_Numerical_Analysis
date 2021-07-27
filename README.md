@@ -2,8 +2,11 @@
 This repository have some ecample of physics simulation or numerical simulation.  
 For example, linear regression, monte carlo method,  
 numerical analytic differential equation and statistical mechanics etc...  
+향후에는 C++로 구현해서 올릴 것
 # Environment  
-Python 3.7.6  
+```
+Python 3.7.6
+```
 # Sample
 ## 2D Ising Lattice Model (Metropolis-Hastings algorithm)  
 - [Monte Carlo investigation of the Ising model](https://www.asc.ohio-state.edu/braaten.1/statphys/Ising_MatLab.pdf)  
