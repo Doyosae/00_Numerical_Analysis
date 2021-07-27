@@ -3,16 +3,19 @@ import matplotlib.pylab as plt
 import pandas as pd
 import seaborn as sns
 
+
 pd.set_option ('display.width', 500)
 pd.set_option ('display.max_column', 100)
 
-TargetDistribution = lambda x : 6*x*(1-x)
-sigma = 0.1
-CountNumber = 100000
 
-InitialSample = np.random.uniform() 
+TargetDistribution = lambda x : 6*x*(1-x)
+sigma              = 0.1
+CountNumber        = 100000
+
+InitialSample  = np.random.uniform() 
 PreviousSample = InitialSample
-SampleList = []
+SampleList     = []
+
 
 """
 1. 근사하고 싶은 임의의 확률분포를 적어준다.
@@ -22,15 +25,12 @@ SampleList = []
 5. 이미 샘플링한 값을 PreviousSample, 다음에 샘플링한 값을 NextSample이라 부르자.
 이 과정은 아래의 While 문에서 구현하였다.
 """
-
 i = 0
-
 while i < CountNumber :
     NextSample = np.random.normal(PreviousSample, sigma)
     
     while  (NextSample <0) | (NextSample > 1) :
         NextSample = np.random.normal(PreviousSample, sigma)
-        
         # 다음 샘플링 값이 0보다 작거나, 1보다 크면 버리고 다시 샘플링하여 값을 추출한다.
         # (왜냐하면 확률 분포의 값이 0 ~ 1에서 정의되기 때문)
         # 매우 중요한 사실, 추정하고자 하는 확률분포의 정의역에 따라 채택하는 범위는 달라질 수 있음
@@ -45,7 +45,6 @@ while i < CountNumber :
     # 그리고 0 ~ 1 사이의 균등분포를 가지는 임의의 값 하나를 추출 (다음 표본이 기각될지 안될지를 결정하는 변수)
     # Metropolis Hastings 알고리즘에 따라서, 사후 확률 / 사전 확률의 비인 Acceptance Prob를 정의한다.
     # 확률로써 작동하는 Alpha와의 크기 비교를 하고 U가 Alpha보다 작다면 승인
-    
     if U < Alpha :
         SampleList.append (NextSample)
         PreviousSample = NextSample

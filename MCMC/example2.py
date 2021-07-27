@@ -4,19 +4,21 @@ import pandas as pd
 import seaborn as sns
 from scipy.stats import norm
 
+
 plt.figure (figsize = [12, 6])
+
 
 # 근사하고 싶은 Target Distribution을 정의 
 TargetDistribution = lambda x : norm.pdf(x)
 
 # 던질 난수가 따르는 분포 (초기 샘플링 이후로 던져질 난수는 이 분포를 따른다.)
 Delta = 0.5 ; ProposalDistribution = lambda x : x + np.random.uniform() * 2 * Delta - Delta
-
 CountNumber = 100000
 
-InitialSample = np.random.uniform() 
+InitialSample  = np.random.uniform() 
 PreviousSample = InitialSample
-SampleList = np.zeros (CountNumber)
+SampleList     = np.zeros (CountNumber)
+
 
 """
 1. 근사하고 싶은 임의의 확률분포를 적어준다.
@@ -24,10 +26,8 @@ SampleList = np.zeros (CountNumber)
 3. 구간 내에서 초기값 하나를 샘플링한다. 그리고 표준편차 Sigma를 따르는 제안분포를 정의한다.
     (Normal Distribution (PreviousSample, Sigma))
 """
-
 i = 0
 while i < CountNumber :
-    
     # 초기 샘플링을 평균으로 가지는 제안분포에서 다음 샘플링에 쓸 값 하나를 추출한다.
     NextSample = ProposalDistribution (PreviousSample)
     
@@ -49,7 +49,6 @@ while i < CountNumber :
         # 위와 같이 NextSample을 SampleList에 넣고 그 조건을 승인한 상태이다.
         # 이제 이전 샘플은 필요가 없어졌으니, 다음 샘플을 이제 이전 샘플로 되돌린다.
         # 샘플링 값이 Alpha보다 크다면 그 조건은 기각한다. (else 문)
-        
     else :
         SampleList[i] = PreviousSample
         PreviousSample = SampleList[i]

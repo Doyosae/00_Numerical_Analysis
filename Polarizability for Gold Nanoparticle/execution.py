@@ -7,12 +7,12 @@ x = 0.00001
 Scale = 100000
 MaxBoundary = 800000
 MaxListBoundary = MaxBoundary-1
-
 ControlVariable = input("Enter a compelx number that you want.")
 
 Function_list = []
-Real_Parts = []
-Imag_Parts = []
+Real_Parts    = []
+Imag_Parts    = []
+
 
 # 주어진 식을 계산하는 모듈
 def Calculator_module (x):
@@ -36,6 +36,7 @@ for index in range (1, MaxBoundary):
     Function_Value = Calculator_module(Calculating)
     Function_list.append(Function_Value)
     
+
 for index in range (0, MaxListBoundary):
     Real_Parts.append(Function_list[index].real)
     Imag_Parts.append(Function_list[index].imag)
@@ -43,9 +44,8 @@ for index in range (0, MaxListBoundary):
 
 # 주의사항, 가로축 척도를 1000으로 나누어 볼껏
 # ex, 0 ~ 8000 -> 0 ~ 8
-fig = plt.figure(figsize=(20, 30)) 
-
-FONTSIZE = 40
+fig       = plt.figure(figsize=(20, 30)) 
+FONTSIZE  = 40
 LINEWIDTH = 2.0
 NUMBERING = 1
 

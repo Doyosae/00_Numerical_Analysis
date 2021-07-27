@@ -1,6 +1,3 @@
-"""
-Simplely Ising model
-"""
 import os, random
 from tqdm import tqdm
 import numpy as np
@@ -9,29 +6,31 @@ import matplotlib.pyplot as plt
 
 class ISING_Model ():
     def __init__ (self, number = 300, time = 2.0):
+        """
+        Simplely Ising model
+        """
         self.number = number
-        self.time = time
-        self.beta = 1 / self.time
-        
-        self.iteration = 0
-        self.isingState = np.ones ((number, number))
+        self.time   = time
+        self.beta   = 1 / self.time
+        self.iteration   = 0
+        self.isingState  = np.ones ((number, number))
         self.deltaEnergy = np.zeros ((number, number))
-
         for index1 in range (self.number) : 
             for index2 in range (self.number) : 
                 if random.random() > 0.5:
                     self.isingState[index1, index2] = -self.isingState[index1, index2]
                     
+
     def initial_plot (self):
         plt.imshow(self.isingState)
         
+
     def spin_Calculator(self, row, column):
         initial = self.isingState[row, column]
         out1 = self.isingState[(row-1)%self.number, column]
         out2 = self.isingState[(row+1)%self.number, column]
         out3 = self.isingState[row, (column-1)%self.number]
         out4 = self.isingState[row, (column+1)%self.number]
-
         output = initial*(out1 + out2 + out3 + out4)
         return output
     
@@ -43,7 +42,6 @@ class ISING_Model ():
             for row in tqdm(range (self.number)) :       
                 for column in range (self.number) :
                     self.deltaEnergy[row, column] = self.spin_Calculator(row, column)
-
                     # row 행에서 스핀값을 바꾸는 것, column 행에서 스핀값을 바꾸는 것
                     # DeltaEnergy를 계산한다. 나의 상태에서 주변 애들이 받는 스핀 변화를 모아서 계산한다.
                     # 이 에너지 변화량이 이전보다 커질까 작아질까???

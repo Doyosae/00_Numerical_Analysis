@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 
 
 def Build_DrawingGraph(XS, YS, ZS):
-    
     plt.rcParams["figure.figsize"] = (20, 15)
     plt.rcParams["lines.linewidth"] = 1.0
     plt.rcParams["axes.grid"] = False
@@ -37,10 +36,9 @@ def Build_CalculateEquation(class_name):
     
     
 class Lorenz_Equation():
-    
     # Define List for Posiotiona information Saving
     # Define Axis Position Initialization
-    DerivTime = 0.01
+    DerivTime      = 0.01
     CalculateSteps = 9999
     
     def __init__(self, Sigma, Beta, Rho):

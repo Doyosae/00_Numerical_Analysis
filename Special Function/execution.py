@@ -10,7 +10,6 @@ plt.rcParams['axes.grid'] = True
 # 감마 함수의 몬테카를로 계산기를 구현
 # 컴퓨터에서는 무한대 적분을 구현할 수 없기에, 치환적분을 하여 적분 구간을 (0, 1)로 변환해주었다.
 def build_GaamaFunction (beta, NUMBER):
-    
     result = 0
     
     for index in range (NUMBER):
@@ -30,13 +29,11 @@ Summation_List = []
 beta = math.pi
 
 # 몬테카를로 방법 N = 1부터, N = 10000까지 반복 시행
+# Gaama(math.pi)의 값은 2.276819287919715로 굉장히 잘 수렴한다.
 for index in range (1, 10000):
     result = 0
     result = build_GaamaFunction(beta, index)
     Summation_List.append (result)
     
-    # Gaama(math.pi)의 값은 2.276819287919715로 굉장히 잘 수렴한다.
-    
 plt.plot(Summation_List, color = "maroon", linewidth = 1.0)
 print (Summation_List[10000-2])
-

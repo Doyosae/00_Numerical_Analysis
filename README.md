@@ -1,8 +1,7 @@
 # Itroduction
-I'm interested in numerical simulation  
-So I often implemented them.  
-For example, linear regression, Monte Carlo method, numerical analytic differential equation,  
-and Statistical Mechanics etc...  
+This repository have some ecample of physics simulation or numerical simulation.  
+For example, linear regression, monte carlo method,  
+numerical analytic differential equation and statistical mechanics etc...  
 # Environment  
 Python 3.7.6  
 # Sample
