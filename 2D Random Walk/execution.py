@@ -1,24 +1,16 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[126]:
-
-
 import numpy as np
 import random as rand
 import matplotlib.pyplot as plt
 
 
 class RandomWalk ():
-    
     def __init__ (self, stepestNumber = 2000):
-        
         self.stepestNumber = stepestNumber
         self.widthAxis = np.zeros(stepestNumber)
         self.heighAxis = np.zeros(stepestNumber)
         
-    def simulation (self):
         
+    def simulation (self):
         """
         몬테카를로 방법을 이용하여 자유입자의 random walk 시뮬레이션
         """
@@ -49,6 +41,5 @@ class RandomWalk ():
         
         
 if __name__ == '__main__':
-    
     model = RandomWalk()
     model.simulation()
