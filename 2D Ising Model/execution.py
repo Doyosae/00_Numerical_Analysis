@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 
 
 class ISING_Model ():
-    
     def __init__ (self, number = 300, time = 2.0):
-        
         self.number = number
         self.time = time
         self.beta = 1 / self.time
@@ -28,7 +26,6 @@ class ISING_Model ():
         plt.imshow(self.isingState)
         
     def spin_Calculator(self, row, column):
-        
         initial = self.isingState[row, column]
         out1 = self.isingState[(row-1)%self.number, column]
         out2 = self.isingState[(row+1)%self.number, column]
@@ -36,12 +33,10 @@ class ISING_Model ():
         out4 = self.isingState[row, (column+1)%self.number]
 
         output = initial*(out1 + out2 + out3 + out4)
-
         return output
     
     
     def simulation(self, end = 100):
-        
         while self.iteration < end : # 총 300회를 반복할 것
             self.iteration = self.iteration + 1 
             
@@ -65,10 +60,8 @@ class ISING_Model ():
             plt.savefig("/Users/doyosae/Desktop/ising/" + str(self.iteration) + ".jpeg")
 
 
-            
 # model demostatration
 if __name__ == '__main__':
-
     plt.rcParams ["figure.figsize"] = (7, 7)
     plt.rcParams ['lines.linewidth'] = 0
     plt.rcParams ['lines.color'] = 'darkred'
