@@ -1,4 +1,4 @@
-# Itroduction
+# Introduction
 This repository have some ecample of physics simulation or numerical simulation.  
 For example, linear regression, monte carlo method,  
 numerical analytic differential equation and statistical mechanics etc...  
